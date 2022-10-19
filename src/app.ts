@@ -7,6 +7,7 @@ import { connectToMongoDb, CORS, isLambdaRuntime } from './commons';
 import healthRoutes from './routes/health.routes';
 import movieRoutes from './routes/movie.routes';
 import genreRoutes from './routes/genre.routes';
+import sortOptionRoutes from './routes/sort-option.routes';
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use('/health', healthRoutes);
 app.use('/movies', movieRoutes);
 app.use('/movies/{movieId}', movieRoutes);
 app.use('/genres', genreRoutes);
+app.use('/sort-options', sortOptionRoutes);
 
 const errorLogger: ErrorRequestHandler = (err, _req, _res, next) => {
   console.error(err.stack);
